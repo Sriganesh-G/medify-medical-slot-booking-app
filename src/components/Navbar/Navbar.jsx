@@ -17,7 +17,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import "./Navbar.css";
 import "../../App.css";
 import Buttons from "../Buttons/Buttons";
-
+import logo from "../../../public/assets/logo.png";
 const Navbar = () => {
   const isReducedScreenSize = useMediaQuery("(max-width:900px");
   const [drawerOpen, setDrawerOpen] = useState(false);
@@ -100,7 +100,7 @@ const Navbar = () => {
           }}
         >
           <Link>
-            <img src="../../../public/assets/logo.png" height={27} width={92} />
+            <img src={logo} height={27} width={92} />
           </Link>
           {!isReducedScreenSize ? (
             <Stack
