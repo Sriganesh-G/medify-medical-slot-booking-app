@@ -8,10 +8,12 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./App.css";
 import Home from "./pages/Home/Home.jsx";
 import SearchResultsPage from "./pages/SearchResultsPage/SearchResultsPage.jsx";
+import BookingPage from "./pages/BookingsPage/BookingPage.jsx";
 
 const router = createBrowserRouter([
   { path: "/", element: <Home /> },
   { path: "search", element: <SearchResultsPage /> },
+  { path: "/my-bookings", element: <BookingPage /> },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(

@@ -1,6 +1,10 @@
+:root {
+  --primaryColor: "#2AA7FF";
+  --secondaryColor: "#E7F0FF";
+}
+
 body {
   font-family: "Poppins", sans-serif;
-  /*   line-height: 1.5; */
 }
 
 * {
