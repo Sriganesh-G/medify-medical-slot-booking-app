@@ -96,11 +96,11 @@ const Navbar = () => {
           alignItems={"center"}
           height={"100px"}
           sx={{
-            padding: { xs: "10px", sm: "5px 60px" }, // Adjust padding based on screen size
+            padding: { xs: "10px", sm: "5px 60px" },
           }}
         >
           <Link>
-            <img src={logo} height={27} width={92} />
+            <img src={logo} alt="medify logo" height={27} width={92} />
           </Link>
           {!isReducedScreenSize ? (
             <Stack
