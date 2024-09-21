@@ -1,0 +1,101 @@
+* {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+}
+
+.searchSection {
+  width: auto;
+  max-width: 1350px;
+  height: auto;
+  background-color: white;
+  border-radius: 15px;
+  margin: 0px auto;
+  overflow: hidden;
+  padding: 10px 10px 30px 10px;
+}
+.lowerSeacrchSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+.upperSearchSection {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 5% 3%;
+}
+
+.lowText {
+  font-size: 20px;
+  color: #102851;
+}
+
+.lowerImages {
+  border-radius: 8px;
+  background-color: #fafbfe;
+  padding: 25px 40px;
+  text-align: center;
+}
+.imageContainer {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 20px;
+}
+#hospitalImage {
+  border: 2px solid #2aa7ff;
+  border-radius: 8px;
+  background-color: #e1f3ff;
+  padding: 25px 40px;
+  text-align: center;
+  color: #2aa7ff;
+}
+
+.lowerImages,
+#hospitalImage:hover {
+  cursor: pointer;
+}
+
+@media screen and (max-width: 1350px) {
+  .searchSection {
+    width: auto;
+    max-width: 1000px;
+  }
+  .imageContainer {
+    flex-wrap: wrap;
+  }
+}
+
+@media screen and (max-width: 1050px) {
+  .searchSection {
+    width: auto;
+    max-width: 800px;
+  }
+  .upperSearchSection {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+  }
+}
+@media screen and (max-width: 850px) {
+  .searchSection {
+    width: auto;
+    max-width: 700px;
+  }
+}
+@media screen and (max-width: 650px) {
+  .searchSection {
+    width: auto;
+    max-width: 500px;
+  }
+}
+@media screen and (max-width: 500px) {
+  .searchSection {
+    width: auto;
+    max-width: 350px;
+  }
+}
