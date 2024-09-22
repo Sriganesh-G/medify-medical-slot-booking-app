@@ -1,0 +1,94 @@
+/* .swiper {
+  width: 100%;
+  height: 750px;
+  margin-top: -18%;
+  margin-bottom: -102%;
+  padding-top: 10%;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  width: 400px;
+  height: 200px;
+  object-fit: cover;
+}
+ */
+/* Ensure the parent swiper container has the correct height */
+.swiper {
+  width: 100%;
+  height: 600px; /* Reduced height of the slider */
+  padding-top: 12%; /* Remove unnecessary padding */
+  margin-top: -18%;
+  padding-bottom: -5%;
+
+  margin-bottom: 20px;
+}
+
+.swiper-slide {
+  text-align: center;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  width: 100%; /* Image will now take full width of the container */
+  max-width: 300px; /* Limit image width */
+  height: auto; /* Let the height scale proportionally */
+  object-fit: cover;
+}
+
+/* Container to ensure Swiper slider doesn't break layout */
+.slider-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Adjust spacing for smaller screen sizes */
+@media (max-width: 640px) {
+  .swiper {
+    height: 300px; /* Adjust the height for smaller screens */
+  }
+}
+
+@media (max-width: 768px) {
+  .swiper {
+    height: 350px; /* Adjust height for tablets */
+  }
+}
+
+@media screen and (max-width: 1500px) {
+  .swiper {
+    height: 530px;
+    padding-top: 14%;
+  }
+}
+
+@media screen and (max-width: 1100px) {
+  .swiper {
+    height: 450px;
+    padding-top: 14%;
+  }
+}
+@media screen and (max-width: 900px) {
+  .swiper {
+    height: 370px;
+    padding-top: 14%;
+  }
+}
+@media screen and (max-width: 600px) {
+  .swiper {
+    height: 340px;
+    padding-top: 14%;
+  }
+}

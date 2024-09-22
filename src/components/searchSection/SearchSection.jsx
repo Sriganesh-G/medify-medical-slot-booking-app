@@ -8,6 +8,12 @@ import SearchBar from "../SearchBar/SearchBar";
 import Buttons from "../Buttons/Buttons";
 import "./SearchSection.css";
 import { Stack } from "@mui/material";
+import DoctorsImage from "../../../public/assets/images/specialistImage/Doctor.png";
+import LabsImage from "../../../public/assets/images/specialistImage/Drugstore.png";
+import HospitalImage from "../../../public/assets/images/specialistImage/Hospital.png";
+import CapsuleImage from "../../../public/assets/images/specialistImage/Capsule.png";
+import AmbulanceImage from "../../../public/assets/images/specialistImage/Ambulance.png";
+
 const SearchSection = () => {
   return (
     <div className="searchSection">
@@ -27,38 +33,23 @@ const SearchSection = () => {
           alignItems={"center"} */
         >
           <div className="lowerImages">
-            <img
-              src="../../../public/assets/images/specialistImage/Doctor.png"
-              alt="Doctors"
-            />
+            <img src={DoctorsImage} alt="Doctors" />
             <p>Doctors</p>
           </div>
           <div className="lowerImages">
-            <img
-              src="../../../public/assets/images/specialistImage/Drugstore.png"
-              alt="Doctors"
-            />
+            <img src={LabsImage} alt="Hospital" />
             <p>Labs</p>
           </div>
           <div id="hospitalImage">
-            <img
-              src="../../../public/assets/images/specialistImage/Hospital.png"
-              alt="Doctors"
-            />
+            <img src={HospitalImage} alt="Doctors" />
             <p>Hospitals</p>
           </div>
           <div className="lowerImages">
-            <img
-              src="../../../public/assets/images/specialistImage/Capsule.png"
-              alt="Doctors"
-            />
+            <img src={CapsuleImage} alt="Medical Store" />
             <p>Medical Store</p>
           </div>
           <div className="lowerImages">
-            <img
-              src="../../../public/assets/images/specialistImage/Ambulance.png"
-              alt="Doctors"
-            />
+            <img src={AmbulanceImage} alt="Ambulance" />
             <p>Ambulance</p>
           </div>
         </div>

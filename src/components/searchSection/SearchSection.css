@@ -13,6 +13,9 @@
   margin: 0px auto;
   overflow: hidden;
   padding: 10px 10px 30px 10px;
+  position: relative;
+  box-shadow: 10px 10px 10px rgb(160, 160, 160);
+  z-index: 10;
 }
 .lowerSeacrchSection {
   display: flex;
@@ -35,7 +38,7 @@
 .lowerImages {
   border-radius: 8px;
   background-color: #fafbfe;
-  padding: 25px 40px;
+  padding: 15px 2cap;
   text-align: center;
 }
 .imageContainer {
@@ -43,6 +46,7 @@
   justify-content: space-evenly;
   align-items: center;
   gap: 20px;
+  width: 100%;
 }
 #hospitalImage {
   border: 2px solid #2aa7ff;
