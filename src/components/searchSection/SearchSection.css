@@ -15,7 +15,7 @@
   padding: 10px 10px 30px 10px;
   position: relative;
   box-shadow: 10px 10px 10px rgb(160, 160, 160);
-  z-index: 10;
+  z-index: 2;
 }
 .lowerSeacrchSection {
   display: flex;
@@ -38,14 +38,16 @@
 .lowerImages {
   border-radius: 8px;
   background-color: #fafbfe;
-  padding: 15px 2cap;
+  padding: 15px 2px;
   text-align: center;
+  width: 220px;
+  height: 220px;
 }
-.imageContainer {
+/* .imageContainer {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  gap: 20px;
+  gap: 10px;
   width: 100%;
 }
 #hospitalImage {
@@ -60,8 +62,34 @@
 .lowerImages,
 #hospitalImage:hover {
   cursor: pointer;
+} */
+.imageContainer {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); /* 5 equal columns */
+  gap: 10px; /* Gap between grid items */
+  width: 100%;
 }
 
+.lowerImages {
+  border-radius: 8px;
+  background-color: #fafbfe;
+  padding: 15px 2px;
+  text-align: center;
+}
+
+#hospitalImage {
+  border: 2px solid #2aa7ff;
+  border-radius: 8px;
+  background-color: #e1f3ff;
+  padding: 25px 40px;
+  text-align: center;
+  color: #2aa7ff;
+}
+
+.lowerImages,
+#hospitalImage:hover {
+  cursor: pointer;
+}
 @media screen and (max-width: 1350px) {
   .searchSection {
     width: auto;

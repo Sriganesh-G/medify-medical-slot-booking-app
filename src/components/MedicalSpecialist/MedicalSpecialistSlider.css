@@ -1,0 +1,122 @@
+.sliderContainer {
+  width: 100%;
+  /* max-width: 1200px; */ /* Adjust width as needed */
+  margin: 0 auto;
+  background-color: white;
+  padding: 20px;
+  height: auto;
+}
+
+.textHeading {
+  text-align: center;
+  margin: 3% 0% 5% 0%;
+  font-size: 48px;
+  font-weight: bold;
+  z-index: 1; /* Ensure text is above other content */
+}
+
+.textHeading h3 {
+  font-size: 24px;
+  color: #000; /* Adjust text color */
+}
+
+.swiper {
+  width: 100%;
+  height: 100%; /* Adjust the height of the slider as needed */
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: transparent;
+  margin: 5% 2%;
+  /* Center slide text vertically */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.swiper-slide img {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.docName {
+  color: #1b3c74;
+  font-size: 24px;
+}
+
+.specialisation {
+  font-size: 17px;
+  color: #2aa7ff;
+}
+
+.docDetails {
+  width: 90%; /* This will take 90% of the width of its parent container */
+  max-width: 300px; /* Ensure it doesn't get too wide */
+  text-align: center;
+}
+
+@media (max-width: 1268px) {
+  .docDetails {
+    width: 100%; /* Make the docDetails div take full width on smaller screens */
+    max-width: none;
+  }
+
+  .docName {
+    font-size: 20px;
+  }
+
+  .specialisation {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 900px) {
+  .docDetails {
+    width: 100%; /* Make the docDetails div take full width on smaller screens */
+    max-width: none;
+  }
+
+  .docName {
+    font-size: 16px;
+  }
+
+  .specialisation {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 750px) {
+  .docDetails {
+    width: 100%; /* Make the docDetails div take full width on smaller screens */
+    max-width: none;
+  }
+
+  .docName {
+    font-size: 12px;
+  }
+
+  .specialisation {
+    font-size: 8px;
+  }
+}
+
+@media (max-width: 560px) {
+  .docDetails {
+    width: 100%; /* Make the docDetails div take full width on smaller screens */
+    max-width: none;
+  }
+
+  .docName {
+    font-size: 8px;
+  }
+
+  .specialisation {
+    font-size: 6px;
+  }
+}

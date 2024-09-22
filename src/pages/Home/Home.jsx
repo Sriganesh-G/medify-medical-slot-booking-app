@@ -4,7 +4,7 @@ import HeroSection from "../../components/HeroSection/HeroSection";
 import SearchSection from "../../components/searchSection/SearchSection";
 import OffersSlider from "../../components/OffersSlider/OffersSlider";
 import SpecialistSection from "../../components/SpecialistSection/SpecialistSection";
-import MedicalSpecialist from "../../components/MedicalSpecialist/MedicalSpecialist";
+import MedicalSpecialistSlider from "../../components/MedicalSpecialist/MedicalSpecialistSlider";
 
 const Home = () => {
   return (
@@ -14,7 +14,7 @@ const Home = () => {
       <SearchSection />
       <OffersSlider />
       <SpecialistSection />
-      <MedicalSpecialist />
+      <MedicalSpecialistSlider />
     </div>
   );
 };
