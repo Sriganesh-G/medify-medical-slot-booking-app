@@ -10,7 +10,7 @@ import {
   Typography,
 } from "@mui/material";
 //importing images
-import UpImage from "../../../public/assets/images/patientCaring/FullImage.png";
+import UpImage from "../../../public/assets/images/patientCaring/fullImage.png";
 import tick from "../../../public/assets/images/patientCaring/tick.png";
 
 const PatientCaring = () => {
