@@ -1,6 +1,6 @@
 import React from "react";
 import { Box, Stack, Typography } from "@mui/material";
-import Detox from "../../../public/assets/images/Blogs/Detox.png";
+import Detox from "../../../public/assets/images/Blogs/detox.png";
 import person from "../../../public/assets/images/Blogs/person.png";
 
 const BlogsCard = () => {

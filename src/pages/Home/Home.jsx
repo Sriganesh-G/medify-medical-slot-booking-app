@@ -9,6 +9,8 @@ import PatientCaring from "../../components/PatientCaring/PatientCaring";
 import Blogs from "../../components/BlogsAndNews/Blogs";
 import FamilySection from "../../components/FamilySection/FamilySection";
 import FAQSection from "../../components/FAQSection/FAQSection";
+import DownloadSection from "../../components/DownloadSection/DownloadSection";
+import footer from "../../../public/assets/footer.png";
 
 const Home = () => {
   return (
@@ -23,6 +25,8 @@ const Home = () => {
       <Blogs />
       <FamilySection />
       <FAQSection />
+      <DownloadSection />
+      <img src={footer} width="100%" className="footerImage" />
     </div>
   );
 };
