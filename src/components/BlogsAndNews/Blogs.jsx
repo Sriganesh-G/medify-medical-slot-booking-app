@@ -1,7 +1,7 @@
 import React from "react";
 import { Box, Container, Typography } from "@mui/material";
 import Grid from "@mui/material/Grid2";
-import BlogsCard from "./BlogsCard";
+import BlogsCard from "./BlogsCard.jsx";
 
 const Blogs = () => {
   return (
@@ -15,13 +15,13 @@ const Blogs = () => {
         </Typography>
 
         <Grid container spacing={2}>
-          <Grid item xs={12} sm={6} md={4}>
+          <Grid xs={12} sm={6} md={4}>
             <BlogsCard />
           </Grid>
-          <Grid item xs={12} sm={6} md={4}>
+          <Grid xs={12} sm={6} md={4}>
             <BlogsCard />
           </Grid>
-          <Grid item xs={12} sm={6} md={4}>
+          <Grid xs={12} sm={6} md={4}>
             <BlogsCard />
           </Grid>
         </Grid>

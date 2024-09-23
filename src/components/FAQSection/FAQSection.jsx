@@ -1,26 +1,13 @@
 import React from "react";
 import FAQImage from "../../../public/assets/images/FaqImage.png";
 import Accordion from "@mui/material/Accordion";
-import AccordionActions from "@mui/material/AccordionActions";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import ExpandMoreIcon from "@mui/icons-material/Add";
-import Button from "@mui/material/Button";
 import "./FAQSection.css";
 const FAQSection = () => {
   return (
-    <div
-      id="faqContainer"
-      /*    style={{
-        backgroundColor: "white",
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        alignItems: "center",
-        padding: "3%",
-        textAlign: "center",
-      }} */
-    >
+    <div id="faqContainer">
       <div className="upperText">
         <p>Get Your Answer</p>
         <h3>Frequently Asked Questions</h3>

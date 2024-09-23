@@ -6,21 +6,17 @@ import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import SearchIcon from "@mui/icons-material/Search";
-import "./SearchBar.css";
 
-const SearchBar = ({
+const CitiesInputBar = ({
   value,
-  statesData = [],
-  selectedState,
-  setSelectedState,
+  citiesData = [],
+  selectedCity,
+  setSelectedCity,
   isDisabled = false,
 }) => {
-  // Handle change and log the selected value
   const handleChange = (event) => {
-    setSelectedState(event.target.value); // Update the local state
-    console.log("Selected state data is:", event.target.value);
+    setSelectedCity(event.target.value); // Set the selected item (city or state)
   };
-
   return (
     <Box width={"285px"}>
       <FormControl fullWidth>
@@ -29,11 +25,11 @@ const SearchBar = ({
           labelId="demo-simple-select-label"
           id="demo-simple-select"
           label={value}
-          value={selectedState}
+          value={selectedCity}
           startAdornment={<SearchIcon />}
           onChange={handleChange}
         >
-          {statesData.map((item, index) => (
+          {citiesData.map((item, index) => (
             <MenuItem key={index} value={item}>
               {item}
             </MenuItem>
@@ -44,11 +40,12 @@ const SearchBar = ({
   );
 };
 
-SearchBar.propTypes = {
-  value: PropTypes.string.isRequired, // Ensure value is a string and required
-  statesData: PropTypes.array, // Optional array for statesData (default to empty)
-  selectedState: PropTypes.string, // Currently selected state
-  setSelectedState: PropTypes.func.isRequired, // Function to set the selected state
+CitiesInputBar.propTypes = {
+  value: PropTypes.string.isRequired, // Prop type validation
+  citiesData: PropTypes.array.isRequired, // Array of cities
+  selectedCity: PropTypes.string, // Selected city
+  setSelectedCity: PropTypes.func.isRequired, // Function to set the selected city
+  isDisabled: PropTypes.bool, // Disable dropdown when necessary
 };
 
-export default SearchBar;
+export default CitiesInputBar;

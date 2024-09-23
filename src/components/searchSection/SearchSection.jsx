@@ -1,37 +1,48 @@
-import React from "react";
-import Box from "@mui/material/Box";
-import InputLabel from "@mui/material/InputLabel";
-import MenuItem from "@mui/material/MenuItem";
-import FormControl from "@mui/material/FormControl";
-import Select from "@mui/material/Select";
+import React, { useEffect } from "react";
+import PropTypes from "prop-types"; // Import PropTypes
 import SearchBar from "../SearchBar/SearchBar";
 import Buttons from "../Buttons/Buttons";
-import "./SearchSection.css";
-import { Stack } from "@mui/material";
 import DoctorsImage from "../../../public/assets/images/specialistImage/Doctor.png";
 import LabsImage from "../../../public/assets/images/specialistImage/Drugstore.png";
 import HospitalImage from "../../../public/assets/images/specialistImage/Hospital.png";
 import CapsuleImage from "../../../public/assets/images/specialistImage/Capsule.png";
 import AmbulanceImage from "../../../public/assets/images/specialistImage/Ambulance.png";
+import "./SearchSection.css";
+import CitiesInputBar from "../SearchBar/CitiesInputBar";
 
-const SearchSection = () => {
+const SearchSection = ({
+  statesData,
+  selectedState,
+  setSelectedState,
+  citiesData,
+  selectedCity,
+  setSelectedCity,
+}) => {
+  // Destructure props correctly
+
   return (
     <div className="searchSection">
       <div className="upperSearchSection">
-        <SearchBar value={"State"} />
-        <SearchBar value={"City"} />
-        <Buttons value={"Search"} />
+        {/* First SearchBar for State */}
+        <SearchBar
+          value="State"
+          statesData={statesData}
+          selectedState={selectedState}
+          setSelectedState={setSelectedState}
+        />
+        {/* Second SearchBar for City (dependent on state selection) */}
+        <CitiesInputBar
+          value="City"
+          citiesData={citiesData}
+          selectedCity={selectedCity}
+          setSelectedCity={setSelectedCity}
+          isDisabled={!selectedState}
+        />
+        <Buttons value="Search" />
       </div>
-      <div className="lowerSeacrchSection">
+      <div className="lowerSearchSection">
         <h4 className="lowText">You may be looking for</h4>
-        <div
-          className="imageContainer"
-          /*    spacing={2}
-          direction={"row"}
-          display={"flex"}
-          justifyContent={"space-evenly"}
-          alignItems={"center"} */
-        >
+        <div className="imageContainer">
           <div className="lowerImages">
             <img src={DoctorsImage} alt="Doctors" />
             <p>Doctors</p>
@@ -56,6 +67,16 @@ const SearchSection = () => {
       </div>
     </div>
   );
+};
+
+// Define prop types for validation
+SearchSection.propTypes = {
+  statesData: PropTypes.array.isRequired,
+  selectedState: PropTypes.string, // Should match the type of the selected state
+  setSelectedState: PropTypes.func.isRequired,
+  citiesData: PropTypes.array.isRequired,
+  selectedCity: PropTypes.string,
+  setSelectedCity: PropTypes.func.isRequired,
 };
 
 export default SearchSection;
