@@ -1,0 +1,35 @@
+#faqContainer {
+  margin: 0px;
+  padding: 0px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 3%;
+}
+
+.upperText p {
+  color: #2aa7ff;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.upperText h3 {
+  color: #1b3c74;
+  font-size: 48px;
+}
+
+.belowSection {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.customAccordion {
+  box-shadow: none;
+  border: none;
+  outline: none;
+  margin-bottom: 20px;
+}
