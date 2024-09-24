@@ -2,7 +2,7 @@ import React from "react";
 import hospitalImages from "../../../public/assets/images/hospitalImage.png";
 import "./HospiralCard.css";
 import Buttons from "../Buttons/Buttons";
-const HospitalCard = () => {
+const HospitalCard = ({ hospitalDetails }) => {
   return (
     <div className="hospitalCardContainer">
       <div className="imageContainer">

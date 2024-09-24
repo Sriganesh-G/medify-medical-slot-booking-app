@@ -28,7 +28,7 @@ const SearchSection = ({
   const navigate = useNavigate();
 
   // Fetch hospital details
-  useEffect(() => {
+  /*   useEffect(() => {
     const fetchHospitalDetails = async () => {
       // Only fetch if both selectedState and selectedCity are not empty
       if (selectedState && selectedCity) {
@@ -50,10 +50,10 @@ const SearchSection = ({
     };
 
     fetchHospitalDetails();
-  }, [selectedState, selectedCity, setHospitalDetails]); // Trigger when selectedState or selectedCity changes
+  }, [selectedState, selectedCity, setHospitalDetails]); */ // Trigger when selectedState or selectedCity changes
 
   // This will log hospital details if there are any
-  useEffect(() => {
+  /*  useEffect(() => {
     if (hospitalDetails.length > 0) {
       console.log(
         "Hospitals details from search section component ",
@@ -63,7 +63,7 @@ const SearchSection = ({
       console.log("No hospital details found.");
     }
   }, [hospitalDetails]); // Monitor hospitalDetails for changes
-
+ */
   // Destructure props correctly
 
   const handleClick = () => {
@@ -80,6 +80,7 @@ const SearchSection = ({
         citiesData,
         selectedState,
         selectedCity,
+        hospitalDetails,
       },
     });
   };
@@ -93,7 +94,6 @@ const SearchSection = ({
           statesData={statesData}
           selectedState={selectedState}
           setSelectedState={setSelectedState}
-          required
         />
         {/* Second SearchBar for City (dependent on state selection) */}
         <CitiesInputBar

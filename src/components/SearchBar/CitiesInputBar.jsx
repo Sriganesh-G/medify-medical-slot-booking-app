@@ -47,7 +47,7 @@ CitiesInputBar.propTypes = {
   value: PropTypes.string.isRequired, // Prop type validation
   citiesData: PropTypes.array.isRequired, // Array of cities
   selectedCity: PropTypes.string, // Selected city
-  setSelectedCity: PropTypes.func.isRequired, // Function to set the selected city
+  setSelectedCity: PropTypes.func, // Function to set the selected city
   isDisabled: PropTypes.bool, // Disable dropdown when necessary
 };
 

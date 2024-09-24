@@ -21,11 +21,18 @@ const SearchResultsPage = () => {
     The || {} part is a fallback to prevent errors if location.state is undefined.
      If location.state is undefined, it will default to an empty object, meaning the destructuring will result in 
      undefined values for all four variables. */
-  const { statesData, citiesData, selectedState, selectedCity } =
-    location.state || {};
+  const {
+    statesData,
+    citiesData,
+    selectedState,
+    setSelectedState,
+    selectedCity,
+    setSelectedCity,
+    hospitalDetails,
+  } = location.state || {};
 
   useEffect(() => {
-    console.log(statesData);
+    console.log(hospitalDetails);
   }, []);
   return (
     <div>
@@ -39,13 +46,14 @@ const SearchResultsPage = () => {
           value="State"
           statesData={statesData}
           selectedState={selectedState}
-          // setSelectedState={setSelectedState}
+          setSelectedState={setSelectedState}
+          isDisabled={false}
         />
         <CitiesInputBar
           value="City"
           citiesData={citiesData}
           selectedCity={selectedCity}
-          //  setSelectedCity={setSelectedCity}
+          setSelectedCity={setSelectedCity}
           isDisabled={!selectedState}
         />
         <Buttons /* onClick={handleClick} */ icon={true} value="Search" />
@@ -63,6 +71,7 @@ const SearchResultsPage = () => {
             citiesData={citiesData}
             selectedState={selectedState}
             selectedCity={selectedCity}
+            hospitalDetails={hospitalDetails}
           />
           <div>
             <img src={freeAppointment} alt="freeAppointment" />

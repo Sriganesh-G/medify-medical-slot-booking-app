@@ -51,7 +51,7 @@ SearchBar.propTypes = {
   value: PropTypes.string.isRequired, // Ensure value is a string and required
   statesData: PropTypes.array, // Optional array for statesData (default to empty)
   selectedState: PropTypes.string, // Currently selected state
-  setSelectedState: PropTypes.func.isRequired, // Function to set the selected state
+  setSelectedState: PropTypes.func, // Function to set the selected state
 };
 
 export default SearchBar;

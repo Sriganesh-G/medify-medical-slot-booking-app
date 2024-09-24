@@ -83,29 +83,21 @@ const Home = () => {
 
   // fetch hospital details
   // Fetch hospital details
-  /*   useEffect(() => {
+  useEffect(() => {
     const fetchHospitalDetails = async () => {
-      // Only fetch if both selectedState and selectedCity are not empty
       if (selectedState && selectedCity) {
         try {
           const response = await axios.get(
             `https://meddata-backend.onrender.com/data?state=${selectedState}&city=${selectedCity}`
           );
-
-          // Log the API response before setting the state
-          //    console.log("API Response:", response.data);
-
           setHospitalDetails(response.data);
         } catch (e) {
           console.log("Error fetching hospital details:", e);
         }
-      } else {
-        console.log("State or city not selected.");
       }
     };
-
     fetchHospitalDetails();
-  }, [selectedState, selectedCity]); // Trigger when selectedState or selectedCity changes */
+  }, [selectedState, selectedCity]);
 
   useEffect(() => {
     if (selectedState && selectedCity) {
@@ -127,10 +119,15 @@ const Home = () => {
     if (selectedState && selectedCity) {
       navigate("/search", {
         state: {
-          statesData, // All state data
+          statesData,
+          setStatesData, // All state data
           citiesData, // All city data
+          setCitiesData,
           selectedState, // Selected state
+          setSelectedState,
           selectedCity, // Selected city
+          setSelectedCity,
+          hospitalDetails,
         },
       });
     } else {
