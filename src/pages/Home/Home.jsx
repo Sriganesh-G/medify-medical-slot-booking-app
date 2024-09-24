@@ -13,12 +13,16 @@ import DownloadSection from "../../components/DownloadSection/DownloadSection";
 import footer from "../../../public/assets/footer.png";
 import { useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
   const [statesData, setStatesData] = useState([]);
   const [citiesData, setCitiesData] = useState([]);
   const [selectedState, setSelectedState] = useState("");
   const [selectedCity, setSelectedCity] = useState("");
+
+  // Initialize useNavigate to send data to SearchResultsPage from here
+  const navigate = useNavigate();
 
   // making API calls to get data of State
   /*   useEffect(() => {
@@ -110,6 +114,17 @@ const Home = () => {
     }
   }, [citiesData]); // Add selectedState as a dependency
 
+  // handles when search buttons is clicked
+  const handleSearch = () => {
+    navigate("/search", {
+      state: {
+        statesData,
+        citiesData,
+        selectedState,
+        selectedCity,
+      },
+    });
+  };
   return (
     <div>
       <Navbar />
@@ -121,6 +136,7 @@ const Home = () => {
         citiesData={citiesData}
         selectedCity={selectedCity}
         setSelectedCity={setSelectedCity}
+        onSearch={handleSearch}
       />
       <OffersSlider />
       <SpecialistSection />

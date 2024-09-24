@@ -1,0 +1,31 @@
+.navbarBelowSection {
+  height: 6.4rem;
+  background-color: #2aa7ff;
+  border-bottom-left-radius: 26px;
+  border-bottom-right-radius: 26px;
+}
+
+.searchPart {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 7rem;
+  background-color: white;
+  margin: 0% 5%;
+  border-radius: 15px;
+}
+.resultInfo p {
+  color: #787887;
+  font-size: 16px;
+}
+.resultInfo {
+  padding: 2.5% 0% 2% 1.5%;
+}
+.resultInfo h6 {
+  font-size: 1.5rem;
+}
+
+.searchResultSection {
+  margin: 1% 5%;
+  height: 100vh;
+}

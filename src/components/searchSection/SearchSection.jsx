@@ -19,6 +19,7 @@ const SearchSection = ({
   citiesData,
   selectedCity,
   setSelectedCity,
+  onSearch,
 }) => {
   // using useNavigate to travel to the search result page
   const navigate = useNavigate();
@@ -27,9 +28,19 @@ const SearchSection = ({
 
   const handleClick = () => {
     console.log("Search Button clicked");
-
+    console.log("States Data:", statesData); // Check if statesData is populated
+    console.log("Cities Data:", citiesData);
+    console.log("Selected State:", selectedState);
+    console.log("Selected City:", selectedCity);
     // navigate to the search results
-    navigate("/search");
+    navigate("/search", {
+      state: {
+        statesData,
+        citiesData,
+        selectedState,
+        selectedCity,
+      },
+    });
   };
 
   return (
@@ -89,6 +100,7 @@ SearchSection.propTypes = {
   citiesData: PropTypes.array.isRequired,
   selectedCity: PropTypes.string,
   setSelectedCity: PropTypes.func.isRequired,
+  onSearch: PropTypes.func.isRequired,
 };
 
 export default SearchSection;
