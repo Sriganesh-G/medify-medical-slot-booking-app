@@ -20,21 +20,55 @@ const Home = () => {
   const [selectedState, setSelectedState] = useState("");
   const [selectedCity, setSelectedCity] = useState("");
 
-  // making API calls to get data of State and Cities
-  useEffect(() => {
+  // making API calls to get data of State
+  /*   useEffect(() => {
     const fetchState = async () => {
       try {
         const response = await axios.get(
           "https://meddata-backend.onrender.com/states"
         );
         setStatesData(response.data);
+        console.log(statesData);
+        // Store the fetched state data in localStorage
+        if (response.data.length > 0) {
+          localStorage.setItem("statesData", JSON.stringify(response.data));
+          console.log(localStorage.getItem("stateData"));
+        }
       } catch (e) {
         console.error("Error fetching states", e.message);
       }
     };
 
     fetchState();
-  }, [selectedState]);
+  }, []); */
+  useEffect(() => {
+    const fetchState = async () => {
+      try {
+        const response = await axios.get(
+          "https://meddata-backend.onrender.com/states"
+        );
+
+        // Set the fetched data to the state
+        setStatesData(response.data);
+        console.log(response.data);
+
+        // Directly store the response data in localStorage
+        if (response.data.length > 0) {
+          localStorage.setItem("statesData", JSON.stringify(response.data));
+
+          // Retrieve and log the data from localStorage to confirm it's saved
+          console.log(
+            "Stored in localStorage:",
+            localStorage.getItem("statesData")
+          );
+        }
+      } catch (e) {
+        console.error("Error fetching states", e.message);
+      }
+    };
+
+    fetchState();
+  }, []); // Removed selectedState as a dependency, this fetch should only run once
 
   // Fetch cities whenever a state is selected
   useEffect(() => {
@@ -45,7 +79,17 @@ const Home = () => {
             `https://meddata-backend.onrender.com/cities/${selectedState}` // Dynamically add selectedState to the URL
           );
           setCitiesData(response.data);
-          console.log("Fetched cities data:", response.data);
+
+          // storing the cities data in local storage
+          if (response.data.length > 0) {
+            localStorage.setItem(
+              `citiesData-${selectedState}`.JSON.stringify(response.data)
+            );
+            console.log(
+              "Cities stored in localStorage:",
+              localStorage.getItem(`citiesData-${selectedState}`)
+            );
+          }
         } catch (e) {
           console.log("Error fetching cities:", e);
         }

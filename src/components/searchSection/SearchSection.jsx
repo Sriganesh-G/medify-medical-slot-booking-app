@@ -9,6 +9,8 @@ import CapsuleImage from "../../../public/assets/images/specialistImage/Capsule.
 import AmbulanceImage from "../../../public/assets/images/specialistImage/Ambulance.png";
 import "./SearchSection.css";
 import CitiesInputBar from "../SearchBar/CitiesInputBar";
+import SearchIcon from "@mui/icons-material/Search";
+import { useNavigate } from "react-router-dom";
 
 const SearchSection = ({
   statesData,
@@ -18,7 +20,17 @@ const SearchSection = ({
   selectedCity,
   setSelectedCity,
 }) => {
+  // using useNavigate to travel to the search result page
+  const navigate = useNavigate();
+
   // Destructure props correctly
+
+  const handleClick = () => {
+    console.log("Search Button clicked");
+
+    // navigate to the search results
+    navigate("/search");
+  };
 
   return (
     <div className="searchSection">
@@ -38,7 +50,7 @@ const SearchSection = ({
           setSelectedCity={setSelectedCity}
           isDisabled={!selectedState}
         />
-        <Buttons value="Search" />
+        <Buttons onClick={handleClick} icon={true} value="Search" />
       </div>
       <div className="lowerSearchSection">
         <h4 className="lowText">You may be looking for</h4>

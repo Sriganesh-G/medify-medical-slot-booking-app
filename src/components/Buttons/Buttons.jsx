@@ -1,8 +1,11 @@
+import { dividerClasses } from "@mui/material";
 import React from "react";
+import SearchIcon from "@mui/icons-material/Search";
 
-const Buttons = ({ value }) => {
+const Buttons = ({ onClick, icon, value }) => {
   return (
     <button
+      onClick={onClick}
       style={{
         color: "white",
         fontSize: "14px",
@@ -17,7 +20,20 @@ const Buttons = ({ value }) => {
         cursor: "pointer",
       }}
     >
-      {value}
+      {icon ? (
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <SearchIcon />
+          <p>{value}</p>
+        </div>
+      ) : (
+        <p>{value}</p>
+      )}
     </button>
   );
 };
