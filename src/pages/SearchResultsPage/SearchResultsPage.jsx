@@ -9,6 +9,8 @@ import HospitalCard from "../../components/HospitalCard/HospitalCard";
 import FAQSection from "../../components/FAQSection/FAQSection";
 import DownloadSection from "../../components/DownloadSection/DownloadSection";
 import Footer from "../../components/FooterComponent/Footer";
+import freeAppointment from "../../../public/assets/images/freeAppointment.png";
+
 const SearchResultsPage = () => {
   //useLocation is used to retrieve any data that has been passed through the navigate function when transitioning between components.
   const location = useLocation(); // This line calls the useLocation hook, which returns the current location object. You can now access various properties of the location, such as location.pathname for the current URL path.
@@ -55,7 +57,17 @@ const SearchResultsPage = () => {
             Book appointments with minimum wait-time & verified doctor details
           </p>
         </div>
-        <HospitalCard />
+        <div>
+          <HospitalCard
+            statesData={statesData}
+            citiesData={citiesData}
+            selectedState={selectedState}
+            selectedCity={selectedCity}
+          />
+          <div>
+            <img src={freeAppointment} alt="freeAppointment" />
+          </div>
+        </div>
       </div>
       <FAQSection />
       <DownloadSection />

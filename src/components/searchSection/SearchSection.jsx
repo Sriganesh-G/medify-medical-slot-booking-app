@@ -27,7 +27,12 @@ const SearchSection = ({
   // Destructure props correctly
 
   const handleClick = () => {
-    console.log("Search Button clicked");
+    // Check if state and city are selected
+    if (!selectedState || !selectedCity) {
+      alert("Please select both a state and a city before searching.");
+      return; // Prevent the search if either state or city is not selected
+    }
+
     console.log("States Data:", statesData); // Check if statesData is populated
     console.log("Cities Data:", citiesData);
     console.log("Selected State:", selectedState);
@@ -52,6 +57,7 @@ const SearchSection = ({
           statesData={statesData}
           selectedState={selectedState}
           setSelectedState={setSelectedState}
+          required
         />
         {/* Second SearchBar for City (dependent on state selection) */}
         <CitiesInputBar
@@ -60,6 +66,7 @@ const SearchSection = ({
           selectedCity={selectedCity}
           setSelectedCity={setSelectedCity}
           isDisabled={!selectedState}
+          required
         />
         <Buttons onClick={handleClick} icon={true} value="Search" />
       </div>

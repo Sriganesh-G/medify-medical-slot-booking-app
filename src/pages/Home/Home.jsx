@@ -20,31 +20,11 @@ const Home = () => {
   const [citiesData, setCitiesData] = useState([]);
   const [selectedState, setSelectedState] = useState("");
   const [selectedCity, setSelectedCity] = useState("");
+  const [hospitalDetails, setHospitalDetails] = useState([]);
 
   // Initialize useNavigate to send data to SearchResultsPage from here
   const navigate = useNavigate();
 
-  // making API calls to get data of State
-  /*   useEffect(() => {
-    const fetchState = async () => {
-      try {
-        const response = await axios.get(
-          "https://meddata-backend.onrender.com/states"
-        );
-        setStatesData(response.data);
-        console.log(statesData);
-        // Store the fetched state data in localStorage
-        if (response.data.length > 0) {
-          localStorage.setItem("statesData", JSON.stringify(response.data));
-          console.log(localStorage.getItem("stateData"));
-        }
-      } catch (e) {
-        console.error("Error fetching states", e.message);
-      }
-    };
-
-    fetchState();
-  }, []); */
   useEffect(() => {
     const fetchState = async () => {
       try {
@@ -102,28 +82,73 @@ const Home = () => {
     fetchCities();
   }, [selectedState]); // Trigger whenever selectedState changes
 
+  /*   // fetch hospital details
   useEffect(() => {
-    if (selectedState) {
-      console.log("Selected state from Home component:", selectedState);
-    }
-  }, [selectedState]); // Add selectedState as a dependency
+    const fetchHospitalDetails = async () => {
+      try {
+        const response = await axios.get(
+          `https://meddata-backend.onrender.com/data?state=${selectedState}&city=${selectedCity}`
+        );
+        setHospitalDetails(response.data);
+        console.log("This is hospital details", response.data);
+      } catch (e) {
+        console.log(e);
+      }
+    };
+    fetchHospitalDetails();
+  }, [statesData, citiesData]);
 
+  if (hospitalDetails.length > 0) {
+    console.log("Hospitals details ", hospitalDetails);
+  } */
+  // Fetch hospital details
   useEffect(() => {
-    if (citiesData.length > 0) {
-      console.log("Selected cities from Home component:", citiesData);
+    const fetchHospitalDetails = async () => {
+      // Only fetch if both selectedState and selectedCity are not empty
+      if (selectedState && selectedCity) {
+        try {
+          const response = await axios.get(
+            `https://meddata-backend.onrender.com/data?state=${selectedState}&city=${selectedCity}`
+          );
+
+          // Log the API response before setting the state
+          console.log("API Response:", response.data);
+
+          setHospitalDetails(response.data);
+        } catch (e) {
+          console.log("Error fetching hospital details:", e);
+        }
+      } else {
+        console.log("State or city not selected.");
+      }
+    };
+
+    fetchHospitalDetails();
+  }, [selectedState, selectedCity]); // Trigger when selectedState or selectedCity changes
+
+  // This will log hospital details if there are any
+  useEffect(() => {
+    if (hospitalDetails.length > 0) {
+      console.log("Hospitals details ", hospitalDetails);
+    } else {
+      console.log("No hospital details found.");
     }
-  }, [citiesData]); // Add selectedState as a dependency
+  }, [hospitalDetails]); // Monitor hospitalDetails for changes
 
   // handles when search buttons is clicked
   const handleSearch = () => {
-    navigate("/search", {
-      state: {
-        statesData,
-        citiesData,
-        selectedState,
-        selectedCity,
-      },
-    });
+    if (selectedState && selectedCity) {
+      navigate("/search", {
+        state: {
+          statesData, // All state data
+          citiesData, // All city data
+          selectedState, // Selected state
+          selectedCity, // Selected city
+        },
+      });
+    } else {
+      alert("Please select both state and city to continue.");
+    }
   };
   return (
     <div>

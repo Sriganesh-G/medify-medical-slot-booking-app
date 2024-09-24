@@ -6,7 +6,7 @@ import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import SearchIcon from "@mui/icons-material/Search";
- 
+
 const CitiesInputBar = ({
   value,
   citiesData = [],
@@ -20,8 +20,11 @@ const CitiesInputBar = ({
   return (
     <Box width={"285px"}>
       <FormControl fullWidth>
-        <InputLabel id="demo-simple-select-label">{value}</InputLabel>
+        <InputLabel required id="demo-simple-select-label">
+          {value}
+        </InputLabel>
         <Select
+          required
           labelId="demo-simple-select-label"
           id="demo-simple-select"
           label={value}
