@@ -34,17 +34,16 @@ const Home = () => {
 
         // Set the fetched data to the state
         setStatesData(response.data);
-        console.log(response.data);
 
         // Directly store the response data in localStorage
         if (response.data.length > 0) {
           localStorage.setItem("statesData", JSON.stringify(response.data));
 
           // Retrieve and log the data from localStorage to confirm it's saved
-          console.log(
+          /*    console.log(
             "Stored in localStorage:",
             localStorage.getItem("statesData")
-          );
+          ); */
         }
       } catch (e) {
         console.error("Error fetching states", e.message);
@@ -69,10 +68,10 @@ const Home = () => {
             localStorage.setItem(
               `citiesData-${selectedState}`.JSON.stringify(response.data)
             );
-            console.log(
+            /*  console.log(
               "Cities stored in localStorage:",
               localStorage.getItem(`citiesData-${selectedState}`)
-            );
+            ); */
           }
         } catch (e) {
           console.log("Error fetching cities:", e);
@@ -82,27 +81,9 @@ const Home = () => {
     fetchCities();
   }, [selectedState]); // Trigger whenever selectedState changes
 
-  /*   // fetch hospital details
-  useEffect(() => {
-    const fetchHospitalDetails = async () => {
-      try {
-        const response = await axios.get(
-          `https://meddata-backend.onrender.com/data?state=${selectedState}&city=${selectedCity}`
-        );
-        setHospitalDetails(response.data);
-        console.log("This is hospital details", response.data);
-      } catch (e) {
-        console.log(e);
-      }
-    };
-    fetchHospitalDetails();
-  }, [statesData, citiesData]);
-
-  if (hospitalDetails.length > 0) {
-    console.log("Hospitals details ", hospitalDetails);
-  } */
+  // fetch hospital details
   // Fetch hospital details
-  useEffect(() => {
+  /*   useEffect(() => {
     const fetchHospitalDetails = async () => {
       // Only fetch if both selectedState and selectedCity are not empty
       if (selectedState && selectedCity) {
@@ -112,7 +93,7 @@ const Home = () => {
           );
 
           // Log the API response before setting the state
-          console.log("API Response:", response.data);
+          //    console.log("API Response:", response.data);
 
           setHospitalDetails(response.data);
         } catch (e) {
@@ -124,12 +105,18 @@ const Home = () => {
     };
 
     fetchHospitalDetails();
-  }, [selectedState, selectedCity]); // Trigger when selectedState or selectedCity changes
+  }, [selectedState, selectedCity]); // Trigger when selectedState or selectedCity changes */
+
+  useEffect(() => {
+    if (selectedState && selectedCity) {
+      console.log(hospitalDetails);
+    }
+  }, [selectedState, selectedCity]);
 
   // This will log hospital details if there are any
   useEffect(() => {
     if (hospitalDetails.length > 0) {
-      console.log("Hospitals details ", hospitalDetails);
+      console.log("Hospitals details from home ", hospitalDetails);
     } else {
       console.log("No hospital details found.");
     }
@@ -162,6 +149,8 @@ const Home = () => {
         selectedCity={selectedCity}
         setSelectedCity={setSelectedCity}
         onSearch={handleSearch}
+        hospitalDetails={hospitalDetails}
+        setHospitalDetails={setHospitalDetails}
       />
       <OffersSlider />
       <SpecialistSection />
