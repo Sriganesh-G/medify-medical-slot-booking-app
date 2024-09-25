@@ -10,6 +10,8 @@ import FAQSection from "../../components/FAQSection/FAQSection";
 import DownloadSection from "../../components/DownloadSection/DownloadSection";
 import Footer from "../../components/FooterComponent/Footer";
 import freeAppointment from "../../../public/assets/images/freeAppointment.png";
+import Box from "@mui/material/Box";
+import Grid from "@mui/material/Grid2";
 
 const SearchResultsPage = () => {
   //useLocation is used to retrieve any data that has been passed through the navigate function when transitioning between components.
@@ -60,23 +62,31 @@ const SearchResultsPage = () => {
       </div>
       <div className="searchResultSection">
         <div className="resultInfo">
-          <h6>{`${citiesData.length} medical centers available in ${selectedState}`}</h6>
+          <h6>{`${hospitalDetails.length} medical centers available in ${selectedState}`}</h6>
           <p>
             Book appointments with minimum wait-time & verified doctor details
           </p>
         </div>
-        <div>
-          <HospitalCard
-            statesData={statesData}
-            citiesData={citiesData}
-            selectedState={selectedState}
-            selectedCity={selectedCity}
-            hospitalDetails={hospitalDetails}
-          />
-          <div>
-            <img src={freeAppointment} alt="freeAppointment" />
-          </div>
-        </div>
+
+        <Grid container spacing={5}>
+          <Grid size={8}>
+            <Box>
+              <HospitalCard
+                statesData={statesData}
+                citiesData={citiesData}
+                selectedState={selectedState}
+                selectedCity={selectedCity}
+                hospitalDetails={hospitalDetails}
+              />
+            </Box>
+          </Grid>
+          <Grid size={4}>
+            <Box>
+              {" "}
+              <img src={freeAppointment} alt="freeAppointment" />
+            </Box>
+          </Grid>
+        </Grid>
       </div>
       <FAQSection />
       <DownloadSection />
