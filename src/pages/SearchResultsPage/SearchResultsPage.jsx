@@ -14,15 +14,8 @@ import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid2";
 
 const SearchResultsPage = () => {
-  //useLocation is used to retrieve any data that has been passed through the navigate function when transitioning between components.
-  const location = useLocation(); // This line calls the useLocation hook, which returns the current location object. You can now access various properties of the location, such as location.pathname for the current URL path.
+  const location = useLocation();
 
-  /*Here in the above, we are destructuring properties from location.state.
-    location.state: This property contains the state object that was passed when you navigated to this component 
-    (in our case, it contains statesData, citiesData, selectedState, and selectedCity).
-    The || {} part is a fallback to prevent errors if location.state is undefined.
-     If location.state is undefined, it will default to an empty object, meaning the destructuring will result in 
-     undefined values for all four variables. */
   const {
     statesData,
     citiesData,
@@ -30,19 +23,21 @@ const SearchResultsPage = () => {
     setSelectedState,
     selectedCity,
     setSelectedCity,
-    hospitalDetails,
+    hospitalDetails = [],
   } = location.state || {};
 
   useEffect(() => {
     console.log(hospitalDetails);
-  }, []);
+  }, [hospitalDetails]);
+
   return (
     <div>
       <div className="navbar">
         <Navbar />
         <div className="navbarBelowSection"></div>
       </div>
-      {/* search input section */}
+
+      {/* Search input section */}
       <div className="searchPart">
         <SearchBar
           value="State"
@@ -58,8 +53,9 @@ const SearchResultsPage = () => {
           setSelectedCity={setSelectedCity}
           isDisabled={!selectedState}
         />
-        <Buttons /* onClick={handleClick} */ icon={true} value="Search" />
+        <Buttons value="Search" />
       </div>
+
       <div className="searchResultSection">
         <div className="resultInfo">
           <h6>{`${hospitalDetails.length} medical centers available in ${selectedState}`}</h6>
@@ -69,25 +65,33 @@ const SearchResultsPage = () => {
         </div>
 
         <Grid container spacing={5}>
-          <Grid size={8}>
+          <Grid item xs={8}>
             <Box>
-              <HospitalCard
-                statesData={statesData}
-                citiesData={citiesData}
-                selectedState={selectedState}
-                selectedCity={selectedCity}
-                hospitalDetails={hospitalDetails}
-              />
+              {/* Pass individual hospital details to HospitalCard */}
+              {/*    {hospitalDetails.map((details, idx) => (
+                <HospitalCard
+                  key={idx}
+                  hospitalDetails={details} // Now this is correct, passing each individual hospital object
+                />
+              ))} */}
+              {hospitalDetails.length > 0 &&
+                hospitalDetails.map((hospital) => (
+                  <HospitalCard
+                    key={hospital["Hospital Name"]}
+                    hospitalDetails={hospital}
+                  />
+                ))}
             </Box>
           </Grid>
-          <Grid size={4}>
+
+          <Grid item xs={4}>
             <Box>
-              {" "}
               <img src={freeAppointment} alt="freeAppointment" />
             </Box>
           </Grid>
         </Grid>
       </div>
+
       <FAQSection />
       <DownloadSection />
       <Footer />
