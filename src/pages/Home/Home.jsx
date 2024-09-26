@@ -53,7 +53,7 @@ const Home = () => {
     fetchState();
   }, []); // Removed selectedState as a dependency, this fetch should only run once
 
-  // Fetch cities whenever a state is selected
+  // Fetch cities whenever a state is selected ,,,......
   useEffect(() => {
     const fetchCities = async () => {
       if (selectedState) {
